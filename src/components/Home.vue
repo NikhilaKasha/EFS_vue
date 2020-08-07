@@ -25,48 +25,51 @@
               grid-list-md>
               <v-layout row>
                 <v-flex xs4>
-                  <v-card>
+                  <v-hover v-slot:default="{hover}">
+                  <v-card :elevation="hover ? 16 : 2">
                     <v-img
                       :src="require('@/assets/images/customers.jpg')" height="200px">
                     </v-img>
 
-                    <v-card-actions>
+                    <v-card-actions class="justify-center">
                       <v-btn flat color="blue" @click="viewCustomers">
-                        <span style="white-space: normal;">View Customer Details
-                        </span>
+                        View Customer<br>Details
                       </v-btn>
                     </v-card-actions>
                 
                   </v-card>
+                  </v-hover>
                 </v-flex>
 
                 <v-flex xs4>
-                  <v-card>
+                  <v-hover v-slot:default="{hover}">
+                  <v-card :elevation="hover ? 16 : 2">
                     <v-img
                       :src="require('@/assets/images/nonstock.jpg')" height="200px">
                     </v-img>
 
-                    <v-card-actions>
+                    <v-card-actions class="justify-center">
                       <v-btn flat color="blue" @click="viewInvestments">
-                        <span style="white-space: normal;">View Investment Details
-                        </span>
+                        View Investment<br>Details
                       </v-btn>
                     </v-card-actions>
                   </v-card>
+                  </v-hover>
                 </v-flex>
                 <v-flex xs4>
-                  <v-card>
+                  <v-hover v-slot:default="{hover}">
+                  <v-card :elevation="hover ? 16 : 2">
                     <v-img
                       :src="require('@/assets/images/stocks.jpg')" height="200px">
                     </v-img>
 
-                    <v-card-actions>
+                    <v-card-actions class="justify-center">
                       <v-btn flat color="blue" @click="viewStocks">
-                        <span style="white-space: normal;">View Stock Details
-                        </span>
+                        View Stock<br>Details
                       </v-btn>
                     </v-card-actions>
                   </v-card>
+                  </v-hover>
                 </v-flex>
               </v-layout>
             </v-container>
