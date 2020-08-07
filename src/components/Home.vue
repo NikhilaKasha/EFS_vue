@@ -31,7 +31,10 @@
                     </v-img>
 
                     <v-card-actions>
-                      <v-btn flat color="blue" @click="viewCustomers">View Customer Details</v-btn>
+                      <v-btn flat color="blue" @click="viewCustomers">
+                        <span style="white-space: normal;">View Customer Details
+                        </span>
+                      </v-btn>
                     </v-card-actions>
                 
                   </v-card>
@@ -44,7 +47,10 @@
                     </v-img>
 
                     <v-card-actions>
-                      <v-btn flat color="blue" @click="viewInvestments">View Investment Details</v-btn>
+                      <v-btn flat color="blue" @click="viewInvestments">
+                        <span style="white-space: normal;">View Investment Details
+                        </span>
+                      </v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
@@ -55,7 +61,10 @@
                     </v-img>
 
                     <v-card-actions>
-                      <v-btn flat color="blue" @click="viewStocks">View Stocks Details</v-btn>
+                      <v-btn flat color="blue" @click="viewStocks">
+                        <span style="white-space: normal;">View Stock Details
+                        </span>
+                      </v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
