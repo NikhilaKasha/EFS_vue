@@ -7,7 +7,7 @@
           &#8220;Welcome {{validUserName}}!&#8221;
           <footer>
             <small>
-              <em>&mdash;Eagle Financial Services, your Midwest Financial Services Partner.</em>
+              <em>&mdash;Eagle Financial Services, your Midwest Financial Services Partner</em>
             </small>
           </footer>
         </blockquote>
@@ -22,8 +22,7 @@
           <v-card>
             <v-container
               fluid
-              grid-list-md
-            >
+              grid-list-md>
               <v-layout row>
                 <v-flex xs4>
                   <v-card>
@@ -32,8 +31,9 @@
                     </v-img>
 
                     <v-card-actions>
-                      <v-btn flat color="orange" @click="viewCustomers">View Details</v-btn>
+                      <v-btn flat color="blue" @click="viewCustomers">View Customer Details</v-btn>
                     </v-card-actions>
+                
                   </v-card>
                 </v-flex>
 
@@ -44,7 +44,7 @@
                     </v-img>
 
                     <v-card-actions>
-                      <v-btn flat color="orange" @click="viewInvestments">View Details</v-btn>
+                      <v-btn flat color="blue" @click="viewInvestments">View Investment Details</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
@@ -55,7 +55,7 @@
                     </v-img>
 
                     <v-card-actions>
-                      <v-btn flat color="orange" @click="viewStocks">View Details</v-btn>
+                      <v-btn flat color="blue" @click="viewStocks">View Stocks Details</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
@@ -84,7 +84,6 @@
       viewCustomers() {
         router.push('/customer-list');
       },
-
       viewInvestments() {
         router.push('/investment-list');
       },
@@ -92,16 +91,13 @@
       viewStocks() {
         router.push('/stock-list');
       },
-
+      
       getUser() {
         if (localStorage.getItem("isAuthenticates")
           && JSON.parse(localStorage.getItem("isAuthenticates")) === true) {
           this.validUserName = JSON.parse(localStorage.getItem("log_user"));
         }
       }
-
-
-
     }
   }
 </script>

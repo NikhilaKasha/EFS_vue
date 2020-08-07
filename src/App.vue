@@ -34,6 +34,20 @@
       authenticated: false,
     }),
 
+    mounted() {
+        apiService.getCustomerList().then(response => {
+          this.authenticated = true;
+        }).catch(error => {
+          if (error.response.status === 401) {
+            localStorage.removeItem('isAuthenticates');
+            localStorage.removeItem('log_user');
+            localStorage.removeItem('token');
+            this.authenticated = false;
+          }
+        });
+        console.log('this.authenticated--'+this.authenticated);
+    },
+
     methods: {
       logout() {
         localStorage.removeItem('isAuthenticates');
@@ -46,15 +60,14 @@
       viewCustomers() {
         router.push('/customer-list');
       },
+       viewInvestments() {
+        router.push('/investment-list');
+      },
 
       viewStocks() {
         router.push('/stock-list');
       },
       
-      viewInvestments() {
-        router.push('/investment-list');
-      },
-
       login() {
         router.push("/auth");
       },

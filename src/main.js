@@ -16,7 +16,6 @@ Vue.use(Vuetify, {
 Vue.use(VueSession)
 
 Vue.config.productionTip = false
-window.axios = require('axios');
 
 /* eslint-disable no-new */
 new Vue({
