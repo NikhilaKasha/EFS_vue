@@ -156,7 +156,7 @@
           if (response.status === 204) {
             alert("Customer deleted");
             this.showMsg = 'deleted';
-            this.$router.go();
+            this.$router.reload();
           }
         }).catch(error => {
           if (error.response.status === 401) {

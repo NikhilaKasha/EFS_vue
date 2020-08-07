@@ -1,8 +1,8 @@
 <template>
 
   <v-app>
-    <v-toolbar class="blue">
-      <v-toolbar-title>Eagle Finance Service</v-toolbar-title>
+    <v-toolbar class="black">
+      <v-toolbar-title><span class="white--text">Eagle Finance Service</span></v-toolbar-title>
       <v-toolbar-items>
         <v-btn flat dark @click="goHome">Home</v-btn>
         <v-btn flat dark @click="viewCustomers">Customers</v-btn>
