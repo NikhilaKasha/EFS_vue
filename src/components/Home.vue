@@ -32,7 +32,7 @@
                     </v-img>
 
                     <v-card-actions class="justify-center">
-                      <v-btn flat color="blue" @click="viewCustomers">
+                      <v-btn flat color="black" @click="viewCustomers">
                         View Customer<br>Details
                       </v-btn>
                     </v-card-actions>
@@ -49,7 +49,7 @@
                     </v-img>
 
                     <v-card-actions class="justify-center">
-                      <v-btn flat color="blue" @click="viewInvestments">
+                      <v-btn flat color="black" @click="viewInvestments">
                         View Investment<br>Details
                       </v-btn>
                     </v-card-actions>
@@ -64,7 +64,7 @@
                     </v-img>
 
                     <v-card-actions class="justify-center">
-                      <v-btn flat color="blue" @click="viewStocks">
+                      <v-btn flat color="black" @click="viewStocks">
                         View Stock<br>Details
                       </v-btn>
                     </v-card-actions>

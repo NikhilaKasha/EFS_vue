@@ -71,8 +71,8 @@
                 />
 
               </v-container>
-              <v-btn v-if="!isUpdate" class="blue white--text" @click="createCustomer">Save</v-btn>
-              <v-btn v-if="isUpdate" class="blue white--text" @click="updateCustomer">Update</v-btn>
+              <v-btn v-if="!isUpdate" class="black white--text" @click="createCustomer">Save</v-btn>
+              <v-btn v-if="isUpdate" class="black white--text" @click="updateCustomer">Update</v-btn>
               <v-btn class="white black--text" @click="cancelOperation">Cancel</v-btn>
 
 

@@ -23,6 +23,7 @@
 
           <v-card-text>
 
+
             <v-form ref="form" lazy-validation>
               <v-container>
 
@@ -167,3 +168,4 @@
     width: 60%;
   }
 </style>
+
