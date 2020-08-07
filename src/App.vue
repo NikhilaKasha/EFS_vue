@@ -1,8 +1,17 @@
 <template>
 
   <v-app>
+    <section id="ABC">
+      <v-img
+         :src="require('@/assets/images/Logo.png')" height="125px" width="125px" class="center">
+      </v-img>
+    </section>
     <v-toolbar class="black">
-      <v-toolbar-title><span class="white--text">Eagle Finance Service</span></v-toolbar-title>
+      <v-toolbar-title>
+        <span class="white--text">
+          Eagle Finance Service
+        </span>
+      </v-toolbar-title>
       <v-toolbar-items>
         <v-btn flat dark @click="goHome">Home</v-btn>
         <v-btn flat dark @click="viewCustomers">Customers</v-btn>
@@ -78,3 +87,16 @@
     }
   };
 </script>
+
+<style>
+  #ABC {
+    background-color: #29293d;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+  }
+</style>
+
