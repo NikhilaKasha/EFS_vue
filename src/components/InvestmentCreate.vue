@@ -27,19 +27,15 @@
             <v-form ref="form" lazy-validation>
               <v-container>
 
-                <v-text-field
-                  v-model="investment.cust_number"
-                  label="Customer Number"
-                  required
-                  type="number"
-                />
-
-                <v-text-field
-                  v-model="investment.customer"
-                  label="Customer"
-                  required
-                  type="number"
-                />
+                <v-select
+                    v-model="investment.customer"
+                    label="Customer Number"
+                    :items="list"
+                    item-value='pk'
+                    item-text='cust_number'
+                >
+      
+                </v-select>
 
                 <v-text-field
                   v-model="investment.category"
@@ -102,6 +98,7 @@
     components: {},
     data() {
       return {
+        customers: [],
         showError: false,
         investment: {},
         pageTitle: "Add New Investment",
@@ -109,7 +106,36 @@
         showMsg: '',
       };
     },
+
+    computed:{
+      list:{
+      get () {
+            return this.customers
+        },
+          set (newValue) {
+            this.customers = newValue
+          }
+      }
+    },
+
     methods: {
+      getCustomers() {
+        apiService.getCustomerList().then(response => {
+          this.customers = response.data.data;
+          if (localStorage.getItem("isAuthenticates")
+            && JSON.parse(localStorage.getItem("isAuthenticates")) === true) {
+            this.validUserName = JSON.parse(localStorage.getItem("log_user"));
+          }
+        }).catch(error => {
+          if (error.response.status === 401) {
+            localStorage.removeItem('isAuthenticates');
+            localStorage.removeItem('log_user');
+            localStorage.removeItem('token');
+            router.push("/auth");
+          }
+        });
+      },
+
       createInvestment() {
         apiService.addNewInvestment(this.investment).then(response => {
           if (response.status === 201) {
@@ -148,6 +174,7 @@
       }
     },
     mounted() {
+      this.getCustomers();
       if (this.$route.params.pk) {
         this.pageTitle = "Edit Investment";
         this.isUpdate = true;

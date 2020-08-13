@@ -6,22 +6,32 @@
          :src="require('@/assets/images/Logo.png')" height="125px" width="125px" class="center">
       </v-img>
     </section>
-    <v-toolbar class="black">
+    <v-toolbar class="teal">
       <v-toolbar-title>
         <span class="white--text">
-          Eagle Finance Service
+          Eagle Financial Services
         </span>
       </v-toolbar-title>
       <v-toolbar-items>
-        <v-btn flat dark @click="goHome">Home</v-btn>
-        <v-btn flat dark @click="viewCustomers">Customers</v-btn>
-         <v-btn flat dark @click="viewStocks">Stocks</v-btn>
-         <v-btn flat dark @click="viewInvestments">Investments</v-btn>
-        <v-btn flat dark v-if="!authenticated"
+        <v-btn flat dark @click="goHome">Home
+            <v-icon right>home</v-icon>
+        </v-btn>
+        <v-btn flat dark @click="viewCustomers">Customers
+            <v-icon right>people</v-icon>
+        </v-btn>
+        <v-btn center flat dark @click="viewStocks">Stocks
+            <v-icon right>stock</v-icon>
+        </v-btn>
+        <v-btn flat dark @click="viewInvestments">Investments
+            <v-icon right>domain</v-icon>
+        </v-btn>
+        <v-spacer></v-spacer>
+        <v-btn class="pull-right" flat dark v-if="!authenticated"
                @click="login">Log in
         </v-btn>
-        <v-btn flat dark v-if="authenticated"
+        <v-btn class="pull-right" flat dark v-if="authenticated"
                @click="logout">Log Out
+               <v-icon right>exit_to_app</v-icon> 
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>

@@ -27,12 +27,23 @@
             <v-form ref="form" lazy-validation>
               <v-container>
 
-                <v-text-field
+                <!-- <v-text-field
                   v-model="stock.customer"
                   label="Customer"
                   required
                   type="number"
-                />
+                /> -->
+
+
+                <v-select
+                    v-model="stock.customer"
+                    label="Customer Number"
+                    :items="customers"
+                    item-value='pk'
+                    item-text='cust_number'
+                >
+      
+                </v-select>
 
                 <v-text-field
                   v-model="stock.symbol"
@@ -88,6 +99,7 @@
     components: {},
     data() {
       return {
+        customers: [],
         showError: false,
         stock: {},
         pageTitle: "Add New Stock",
@@ -95,6 +107,7 @@
         showMsg: '',
       };
     },
+  
     methods: {
       createStock() {
         apiService.addNewStock(this.stock).then(response => {
@@ -113,9 +126,28 @@
           }
         });
       },
+
+      getCustomers() {
+        apiService.getCustomerList().then(response => {
+          this.customers = response.data.data;
+          if (localStorage.getItem("isAuthenticates")
+            && JSON.parse(localStorage.getItem("isAuthenticates")) === true) {
+            this.validUserName = JSON.parse(localStorage.getItem("log_user"));
+          }
+        }).catch(error => {
+          if (error.response.status === 401) {
+            localStorage.removeItem('isAuthenticates');
+            localStorage.removeItem('log_user');
+            localStorage.removeItem('token');
+            router.push("/auth");
+          }
+        });
+      },
+
       cancelOperation(){
          router.push("/stock-list");
       },
+
       updateStock() {
         apiService.updateStock(this.stock).then(response => {
           if (response.status === 200) {
@@ -134,6 +166,7 @@
       }
     },
     mounted() {
+      this.getCustomers();
       if (this.$route.params.pk) {
         this.pageTitle = "Edit Stock";
         this.isUpdate = true;
